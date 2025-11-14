@@ -24,6 +24,13 @@ export default function NavBar() {
                             ><FaHome /> Home</Link>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
+                     <NavigationMenuItem>
+                          <NavigationMenuLink asChild>
+                            <Link href="/contants"
+                                className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Contants
+                                </Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
 
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild>
@@ -33,13 +40,7 @@ export default function NavBar() {
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 
-                    <NavigationMenuItem>
-                          <NavigationMenuLink asChild>
-                            <Link href="/contants"
-                                className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Contants
-                                </Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
+                   
 
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild>
