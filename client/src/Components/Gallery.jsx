@@ -3,25 +3,25 @@ import { useEffect, useState } from "react"
 
 export default function contantPage() {
   
-  const [content, setContant] = useState([]);
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
+//   const [content, setContant] = useState([]);
+//   const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
 
-  console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
+//   console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
 
   
- useEffect(() => {
-  fetch(`${apiUrl}/content`)
-    .then(res => res.json())
-    .then(data => setContant(data))
-    .catch(err => console.log("Fetch error:", err));
-}, []);
+//  useEffect(() => {
+//   fetch(`${apiUrl}/content`)
+//     .then(res => res.json())
+//     .then(data => setContant(data))
+//     .catch(err => console.log("Fetch error:", err));
+// }, []);
 
 
 
   return (
     <>
       <h1>Welcome to My HomePage</h1>
-      <div>
+      {/* <div>
        { content.map(item => (
         <div key ={item.id}
         >
@@ -31,7 +31,7 @@ export default function contantPage() {
         </div>
 
         ))}
-        </div>
+        </div> */}
     
     </>
   )
