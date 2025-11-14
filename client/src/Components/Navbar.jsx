@@ -28,7 +28,8 @@ export default function NavBar() {
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild>
                             <Link href="/prog"
-                                className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Progress</Link>
+                                className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Progress
+                                </Link>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 
