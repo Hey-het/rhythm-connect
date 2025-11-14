@@ -4,16 +4,18 @@ import { useEffect, useState } from "react"
 export default function contantPage() {
   
   const [content, setContant] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:8080/content").then(
-      response => response.json()
-    ).then(
-      data => {
-        console.log(data);
-        setContant(data)
-      }
-    )
-  }, [])
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
+
+  console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
+
+  
+ useEffect(() => {
+  fetch(`${apiUrl}/content`)
+    .then(res => res.json())
+    .then(data => setContant(data))
+    .catch(err => console.log("Fetch error:", err));
+}, []);
+
 
 
   return (

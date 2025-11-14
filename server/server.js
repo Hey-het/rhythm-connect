@@ -6,7 +6,10 @@ import pg from "pg";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://rhythm-connect.vercel.app"]
+}));
+
 app.use(express.json());
 
 // DB
