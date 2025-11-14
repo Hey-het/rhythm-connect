@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node server.js",
+    "dev": "node index.js",
+    "start:vercel": "node server.js",
     "seed": "node seed"
+      
 
   },
   "keywords": [],
