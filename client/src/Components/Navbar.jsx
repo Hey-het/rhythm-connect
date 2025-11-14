@@ -24,10 +24,10 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/content"
+            href="/gallery"
             className="text-white hover:text-yellow-300 font-semibold"
           >
-            Content
+            Gallery
           </Link>
         </li>
         <li>
