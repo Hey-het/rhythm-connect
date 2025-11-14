@@ -12,9 +12,11 @@ import { FaHome } from "react-icons/fa";
 
 export default function NavBar() {
     return (
-        <nav className="bg-blue-950 shadow px-8 py-4 flex justify-center flex-row rounded-t-md ">
+        <nav className="bg-blue-950 shadow px-4 py-4 flex justify-start overflow-x-auto">
+
             <NavigationMenu >
-                <NavigationMenuList className="flex flex-row gap-x-8 items-center">
+                <NavigationMenuList className="flex flex-wrap gap-x-6 items-center min-w-max">
+
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild className="flex flex-row gap-2">
                             <Link href="/"
@@ -25,8 +27,8 @@ export default function NavBar() {
 
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild>
-                            <Link href="/prog" 
-                            className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Progress</Link>
+                            <Link href="/prog"
+                                className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Progress</Link>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 
@@ -34,6 +36,7 @@ export default function NavBar() {
                         <NavigationMenuLink asChild>
                             <Link href="/content" className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Content</Link>
                         </NavigationMenuLink>
+
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
