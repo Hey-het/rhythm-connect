@@ -26,11 +26,11 @@ export default function NavBar() {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild>
+                        {/* <NavigationMenuLink asChild>
                             <Link href="/prog"
                                 className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Progress
                                 </Link>
-                        </NavigationMenuLink>
+                        </NavigationMenuLink> */}
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
