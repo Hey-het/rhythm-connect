@@ -26,18 +26,19 @@ export default function NavBar() {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        {/* <NavigationMenuLink asChild>
+                        <NavigationMenuLink asChild>
                             <Link href="/prog"
                                 className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Progress
                                 </Link>
-                        </NavigationMenuLink> */}
+                        </NavigationMenuLink>
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <NavigationMenuLink asChild>
-                            <Link href="/content" className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Content</Link>
+                          <NavigationMenuLink asChild>
+                            <Link href="/contants"
+                                className="flex items-center gap-1 text-white hover:text-yellow-300 font-semibold">Contants
+                                </Link>
                         </NavigationMenuLink>
-
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
