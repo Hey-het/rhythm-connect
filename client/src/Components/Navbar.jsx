@@ -4,7 +4,7 @@ import { FaHome } from "react-icons/fa";
 
 export default function NavBar() {
   return (
-    <nav className="bg-blue-950 shadow px-4 py-4">
+    <nav className="bg-blue-950 shadow px-4 py-4 rounded-t-lg">
       <ul className="flex flex-wrap justify-center gap-6">
         <li>
           <Link

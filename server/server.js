@@ -26,6 +26,10 @@ app.get("/content", async (req, res) => {
   const sampleContent = await db.query("SELECT * FROM content;");
   res.json(sampleContent.rows);
 });
+app.post("/content", async (req,res)=>{
+  const {user_id, title, description, url, category}= req.body;
+  
+})
 
 // ❗ IMPORTANT: Do NOT listen to a port on Vercel
 export default app;
