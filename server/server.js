@@ -6,9 +6,11 @@ import pg from "pg";
 dotenv.config();
 
 const app = express();
-app.use(cors({
-  origin: ["http://localhost:3000", "https://rhythm-connect.vercel.app"]
-}));
+app.use(cors(
+//   {
+//   origin: ["http://localhost:3000", "https://rhythm-connect.vercel.app"]
+// }
+));
 
 app.use(express.json());
 
@@ -18,18 +20,20 @@ export const db = new pg.Pool({
 });
 
 // Routes
-app.get("/", (req, res) => {
-  res.send("Hello from Rhythm Connect Server (Vercel)");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello from Rhythm Connect Server (Vercel)");
+// });
 
 app.get("/content", async (req, res) => {
-  const sampleContent = await db.query("SELECT * FROM content;");
+  const sampleContent = await db.query(`SELECT * FROM content`);
   res.json(sampleContent.rows);
 });
-app.post("/content", async (req,res)=>{
-  const {user_id, title, description, url, category}= req.body;
+
+
+// app.post("/content", async (req,res)=>{
+//   const {user_id, title, description, url, category}= req.body;
   
-})
+// })
 
 // ❗ IMPORTANT: Do NOT listen to a port on Vercel
 export default app;
