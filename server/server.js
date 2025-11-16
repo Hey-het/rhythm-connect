@@ -6,11 +6,7 @@ import pg from "pg";
 dotenv.config();
 
 const app = express();
-app.use(cors(
-//   {
-//   origin: ["http://localhost:3000", "https://rhythm-connect.vercel.app"]
-// }
-));
+app.use(cors());
 
 app.use(express.json());
 
@@ -30,10 +26,17 @@ app.get("/content", async (req, res) => {
 });
 
 
-// app.post("/content", async (req,res)=>{
-//   const {user_id, title, description, url, category}= req.body;
+app.post("/content", async (req,res)=>{
+  const {user_id, title, description, url, category}= req.body;
+  const newContent = await db.query(
+    `INSERT INTO content (user_id, title, description, url, category) 
+      VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+    [user_id, title, description, url, category]
+  )
   
-// })
+  res.json(newContent.rows[0]);
+  console.log("New content added:", newContent.rows[0]);
+})
 
 // ❗ IMPORTANT: Do NOT listen to a port on Vercel
 export default app;

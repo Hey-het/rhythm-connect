@@ -1,12 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
+import UploadPage from "@/Components/UploadPage";
 
 export default function galleryPage() {
 
     const [content, setContent] = useState([]);
+    const [upload, setUpload] = useState();
     const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
 
-    console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
+    // console.log("API URL:", process.env.NEXT_PUBLIC_API_URL);
 
     useEffect(() => {
         // Fetch content from API or database
@@ -14,7 +16,7 @@ export default function galleryPage() {
             (rep => rep.json())
             .then(data => {
                 setContent(data)
-                console.log(data);
+                // console.log(data);
             })
     }, []);
     return (
@@ -36,10 +38,23 @@ export default function galleryPage() {
                     <option value="">Music</option>
                     <option value="">Fitness</option>
                 </select>
-                <button className="bg-linear-to-r from-pink-400 via-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:scale-105 transform transition">
+                <button
+                    onClick={() => setUpload(true)}
+                    className="bg-linear-to-r from-pink-400 via-purple-600 to-blue-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:scale-105 transform transition">
                     Upload
                 </button>
             </div>
+            {/* show upload form if state is true */}
+            {upload && <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
+                <div className="bg-white rounded-xl p-8 shadow-2xl w-full max-w-md relative">
+                    {/* Close button */}
+                    <button className="absolute top-2 right-2 text-xl" onClick={() => setUpload(false)}>
+                        &times;
+                    </button>
+                    <UploadPage />
+                </div>
+            </div>
+            }
             <main className="flex-1 py-8 px-10 overflow-y-auto">
                 <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {content.map(item => (
