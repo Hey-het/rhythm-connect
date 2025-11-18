@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import UploadPage from "@/Components/UploadPage";
 
+
 export default function galleryPage() {
 
     const [content, setContent] = useState([]);
@@ -19,6 +20,7 @@ export default function galleryPage() {
                 // console.log(data);
             })
     }, []);
+    
     return (
         <div className="min-h-screen bg-[#EEAECA] bg-[radial-gradient(circle,rgba(238,174,202,1)_0%,rgba(158,230,204,1)_71%,rgba(148,187,233,1)_96%)]">
 
@@ -48,7 +50,9 @@ export default function galleryPage() {
             {upload && <div className="fixed inset-0 bg-black/30 flex items-center justify-center z-50">
                 <div className="bg-white rounded-xl p-8 shadow-2xl w-full max-w-md relative">
                     {/* Close button */}
-                    <button className="absolute top-2 right-2 text-xl" onClick={() => setUpload(false)}>
+                    <button className="absolute top-2 right-2 text-xl" 
+                    onClick={() => setUpload(false)}
+                    >
                         &times;
                     </button>
                     <UploadPage />

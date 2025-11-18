@@ -1,12 +1,13 @@
 import express from "express";
-import cors from "cors";
+// import cors from "cors";
+import { corsMiddleware } from "./coreMiddleware.js";
 import dotenv from "dotenv";
 import pg from "pg";
 
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(corsMiddleware);
 
 app.use(express.json());
 
