@@ -16,7 +16,7 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/prog"
+            href="/Progress"
             className="text-white hover:text-yellow-300 font-semibold"
           >
             Progress
@@ -24,7 +24,7 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/gallery"
+            href="/Gallery"
             className="text-white hover:text-yellow-300 font-semibold"
           >
             Gallery
@@ -32,7 +32,7 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/community"
+            href="/Community"
             className="text-white hover:text-yellow-300 font-semibold"
           >
             Community
@@ -40,7 +40,7 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/challenges"
+            href="/Challenges"
             className="text-white hover:text-yellow-300 font-semibold"
           >
             Challenges
@@ -48,7 +48,7 @@ export default function NavBar() {
         </li>
         <li>
           <Link
-            href="/profile"
+            href="/Profile"
             className="text-white hover:text-yellow-300 font-semibold"
           >
             Profile

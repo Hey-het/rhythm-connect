@@ -39,5 +39,10 @@ app.post("/content", async (req,res)=>{
   console.log("New content added:", newContent.rows[0]);
 })
 
+app.get("/progress", async (req, res) => {
+  const progressLogs = await db.query(`SELECT * FROM progress`);
+  res.json(progressLogs.rows);
+});
+
 // ❗ IMPORTANT: Do NOT listen to a port on Vercel
 export default app;
