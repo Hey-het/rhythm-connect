@@ -29,7 +29,7 @@ export default function UploadPage() {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log("Response from server:", data); // logs in **client console**
+      // console.log("Response from server:", data); // logs in **client console**
       // you can optionally clear the form
       setTitle("");
       setDescription("");

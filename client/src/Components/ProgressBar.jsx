@@ -5,17 +5,21 @@ export default function ProgressBar({ progress }) {
     const categories = ["Dance", "Music", "Fitness"];
 
    // Step 1: Calculate the average for each category using a very simple loop
-  function getAverage(category) {
+function getAverage(category) {
   let total = 0;
   let count = 0;
   for (const item of progress) {
-    if (item.category === category) {
+    if (
+      item.category &&
+      item.category.trim().toLowerCase() === category.trim().toLowerCase()
+    ) {
       total += item.completion_percentage;
       count += 1;
     }
   }
   return count > 0 ? Math.round(total / count) : 0;
 }
+// Step 2: Prepare data for rendering
 
 const progressStats = categories.map(cat => ({
   label: cat,
@@ -27,6 +31,8 @@ const progressStats = categories.map(cat => ({
       : cat === "Music" ? "bg-blue-200"
       : "bg-purple-200"
 }));
+
+
 
 
 return (

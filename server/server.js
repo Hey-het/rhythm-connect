@@ -56,5 +56,23 @@ app.get('/progress', async (req, res) => {
   console.log("Fetched progress records:", result.rows);
 });
 
+app.post('/progress', async (req, res) => {
+  const { user_id, content_id, percentage, notes } = req.body;
+
+  // Validate input
+  if (!content_id || !percentage) {
+    return res.status(400).json({ error: "content_id and percentage required" });
+  }
+
+  const newProgress = await db.query(
+    `INSERT INTO progress (user_id, content_id, percentage, notes) 
+     VALUES ($1, $2, $3, $4) RETURNING *`,
+    [user_id, content_id, percentage, notes]
+  );
+
+  res.json(newProgress.rows[0]);
+  console.log("New progress logged:", newProgress.rows[0]);
+});
+
 // ❗ IMPORTANT: Do NOT listen to a port on Vercel
 export default app;

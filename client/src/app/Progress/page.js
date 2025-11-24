@@ -1,38 +1,25 @@
 "use client";
 import { useState, useEffect } from "react";
 import ProgressBar from "@/Components/ProgressBar";
+import ProgressCategoryChart from "@/Components/ProgressCategoryChart";
+import LogFormPage from "@/Components/LogForm";
 
 export default function ProgressPage() {
   //   //  Set user id here (replace with auth/session value)
   const user_id = 1;
-  const [content, setContent] = useState([]);
+  
   const [progress, setProgress] = useState([]);
-
-  //   const [selectedContentId, setSelectedContentId] = useState("");
-  //   const [completionPercentage, setCompletionPercentage] = useState(0);
-  //   const [notes, setNotes] = useState("");
-  //   const [success, setSuccess] = useState(false);
+  
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
-  console.log("API URL:", apiUrl);
-
-
-  // useEffect(() => {
-  //   //  Fetch content from API or database
-  //   fetch(`${apiUrl}/content`).then
-  //     (rep => rep.json())
-  //     .then(data => {
-  //       setProgress(data)
-  //       // console.log(data);
-  //     })
-  // }, []);
+  
   useEffect(() => {
     //  Fetch content from API or database
     fetch(`${apiUrl}/progress`).then
       (rep => rep.json())
       .then(data => {
         setProgress(data)
-        console.log(data);
+        // console.log(data);
       })
   }, []);
 
@@ -51,20 +38,9 @@ export default function ProgressPage() {
 
 {/* Progress Bars */}
 <ProgressBar progress={progress} />
-
-{/* Logs */}
-<div className="mt-6">
-  {progress.map(item => (
-    <div key={item.id} className="mb-4 border-b pb-2">
-      <div className="font-semibold text-blue-800">Completed: {item.completion_percentage}%</div>
-      <div className="text-gray-700">{item.notes}</div>
-      <div className="text-xs text-gray-400">{item.log_date}</div>
-
-      {/* Category will now appear! */}
-      <div className="text-xs text-gray-500">Category: {item.category}</div>
-    </div>
-  ))}
-</div>
+<ProgressCategoryChart progress={progress} />
+{/* Log New Progress Button & Modal */}
+<LogFormPage progress={progress} />
 
 
         </div>
