@@ -13,7 +13,7 @@ export default function ProgressCategoryChart({ progress }) {
         item.category &&
         item.category.trim().toLowerCase() === category.trim().toLowerCase()
       ) {
-        total += item.completion_percentage;
+        total += item.percentage;
         count += 1;
       }
     }

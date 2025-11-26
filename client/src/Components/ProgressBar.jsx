@@ -13,7 +13,8 @@ function getAverage(category) {
       item.category &&
       item.category.trim().toLowerCase() === category.trim().toLowerCase()
     ) {
-      total += item.completion_percentage;
+      total += Number(item.percentage) || 0;
+
       count += 1;
     }
   }
@@ -31,7 +32,7 @@ const progressStats = categories.map(cat => ({
       : cat === "Music" ? "bg-blue-200"
       : "bg-purple-200"
 }));
-
+console.log("ProgressBar progress prop:", progress);
 
 
 

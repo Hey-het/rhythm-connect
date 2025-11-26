@@ -10,12 +10,12 @@ export default function LogFormPage({ progress }) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
   const [contents, setContents] = useState([]);
 
-useEffect(() => {
-  fetch(`${apiUrl}/content`) // your endpoint returning all contents
-    .then(res => res.json())
-    .then(data => setContents(data))
-    .catch(err => console.error(err));
-}, []);
+  useEffect(() => {
+    fetch(`${apiUrl}/content`) // your endpoint returning all contents
+      .then(res => res.json())
+      .then(data => setContents(data))
+      .catch(err => console.error(err));
+  }, []);
 
 
   // 
@@ -24,13 +24,14 @@ useEffect(() => {
 
     const payload = {
       user_id: 1,
-       content_id: contentId, // temporary example
+      content_id: contentId, // temporary example
       percentage,
       notes,
+      date
     };
 
     // Just log to client console
-     fetch(`${apiUrl}/progress`, {
+    fetch(`${apiUrl}/progress`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -41,7 +42,7 @@ useEffect(() => {
         setPercentage("");
         setNotes("");
       })
-      // .catch((err) => console.error("Fetch error:", err));
+    // .catch((err) => console.error("Fetch error:", err));
   };
 
 
@@ -65,6 +66,19 @@ useEffect(() => {
             </button>
             <div className="font-bold text-blue-900 text-lg mb-2">Log New Progress</div>
             <form onSubmit={handleSubmit}>
+              <select
+                className="w-full rounded border mb-2"
+                value={contentId}
+                onChange={(e) => setContentId(e.target.value)}
+              >
+                <option value="">Select Content</option>
+
+                {contents.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.title || item.name || `Content #${item.id}`}
+                  </option>
+                ))}
+              </select>
               <input
                 className="w-full rounded border mb-2"
                 type="number"
@@ -80,6 +94,14 @@ useEffect(() => {
                 placeholder="Notes"
                 value={notes || ""}
                 onChange={(e) => setNotes(e.target.value)}
+              />
+              < input
+                type="date"
+                className="w-full rounded border mt-2"
+                onChange={(e) => {
+                  // You can handle date change here if needed
+                }}  
+              
               />
 
               <button

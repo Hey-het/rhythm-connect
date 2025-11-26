@@ -19,7 +19,7 @@ export default function ProgressPage() {
       (rep => rep.json())
       .then(data => {
         setProgress(data)
-        // console.log(data);
+        console.log(data);
       })
   }, []);
 
