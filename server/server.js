@@ -50,7 +50,7 @@ app.get('/progress', async (req, res) => {
     JOIN
       content ON progress.content_id = content.id
     ORDER BY
-      progress.log_date DESC
+      progress.date DESC
   `);
   res.json(result.rows);
   console.log("Fetched progress records:", result.rows);
