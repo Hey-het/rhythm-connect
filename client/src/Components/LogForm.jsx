@@ -6,6 +6,8 @@ export default function LogFormPage({ progress }) {
   const [percentage, setPercentage] = useState();
   const [notes, setNotes] = useState();
   const [contentId, setContentId] = useState("");
+  const [date, setDate] = useState("");
+
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
   const [contents, setContents] = useState([]);
@@ -27,7 +29,7 @@ export default function LogFormPage({ progress }) {
       content_id: contentId, // temporary example
       percentage,
       notes,
-      date
+      date,
     };
 
     // Just log to client console
@@ -95,14 +97,13 @@ export default function LogFormPage({ progress }) {
                 value={notes || ""}
                 onChange={(e) => setNotes(e.target.value)}
               />
-              < input
+              <input
                 type="date"
                 className="w-full rounded border mt-2"
-                onChange={(e) => {
-                  // You can handle date change here if needed
-                }}  
-              
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
               />
+
 
               <button
                 type="submit"

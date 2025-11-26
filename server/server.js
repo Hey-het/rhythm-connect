@@ -65,7 +65,7 @@ app.post('/progress', async (req, res) => {
   }
 
   const newProgress = await db.query(
-    `INSERT INTO progress (user_id, content_id, notes , percentage) 
+    `INSERT INTO progress (user_id, content_id, notes , percentage, date) 
      VALUES ($1, $2, $3, $4, $5) RETURNING *`,
     [user_id, content_id, notes , percentage, date]
   );
