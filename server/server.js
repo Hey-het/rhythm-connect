@@ -57,7 +57,7 @@ app.get('/progress', async (req, res) => {
 });
 
 app.post('/progress', async (req, res) => {
-  const { user_id, content_id, percentage, notes } = req.body;
+  const { user_id, content_id, percentage, notes, date } = req.body;
 
   // Validate input
   if (!content_id || !percentage) {
@@ -65,9 +65,9 @@ app.post('/progress', async (req, res) => {
   }
 
   const newProgress = await db.query(
-    `INSERT INTO progress (user_id, content_id, percentage, notes) 
-     VALUES ($1, $2, $3, $4) RETURNING *`,
-    [user_id, content_id, percentage, notes]
+    `INSERT INTO progress (user_id, content_id, notes , percentage) 
+     VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+    [user_id, content_id, notes , percentage, date]
   );
 
   res.json(newProgress.rows[0]);
